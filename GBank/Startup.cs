@@ -1,5 +1,7 @@
 using GBank.Extensions;
 using GBank.Graph;
+using GBank.Repositories;
+using GraphQL.MicrosoftDI;
 using GraphQL.Server;
 using GraphQL.Types;
 using Microsoft.AspNetCore.Builder;
@@ -23,7 +25,10 @@ namespace GBank
         public IWebHostEnvironment Environment { get; }
          
         public void ConfigureServices(IServiceCollection services)
-        {       
+        {
+            services.AddSingleton<ISchema, GBankSchema>(services => new GBankSchema(new SelfActivatingServiceProvider(services)));
+            services.AddSingleton<IAccountRepo, FakeAccountRepo>();
+            services.AddSingleton<ICustomerRepo, FakeCustomerRepo>();
 
             services.AddScoped<ISchema, GBankSchema>()
                 .AddGraphQL((options, provider) =>

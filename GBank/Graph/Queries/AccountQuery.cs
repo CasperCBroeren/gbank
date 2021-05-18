@@ -7,7 +7,7 @@ namespace GBank.Graph
 {
     public class AccountQuery : ObjectGraphType
     {
-        public AccountQuery()
+        public AccountQuery(IAccountRepo accountRepo)
         {
             Field<ListGraphType<AccountType>>("accounts", "Returns all accounts of a Customer by Id",
                 new QueryArguments(
@@ -18,7 +18,7 @@ namespace GBank.Graph
                       if (context.Arguments.TryGetValue("id", out var guid)
                         && guid.Value != null)
                       {
-                          return FakeAccountRepo.GetAccounts((Guid)guid.Value);
+                          return accountRepo.GetAccounts((Guid)guid.Value);
                       }
 
                       return Array.Empty<Account>();

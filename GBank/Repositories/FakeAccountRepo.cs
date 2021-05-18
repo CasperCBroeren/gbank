@@ -5,9 +5,14 @@ using System.Linq;
 
 namespace GBank.Repositories
 {
-    public static class FakeAccountRepo
+    public interface IAccountRepo
     {
-        public static List<Account> GetAccounts(Guid customerId)
+        List<Account> GetAccounts(Guid customerId);
+    }
+
+    public class FakeAccountRepo : IAccountRepo
+    {
+        public List<Account> GetAccounts(Guid customerId)
         {
             var items = new List<Account>();
             items.Add(new Account() { AccountHolderId = Guid.Parse("a3539b0e-df06-4794-98ab-1c0fcbea8f65"), Currency = "EUR", Iban = "1", Usage = AccountUsage.Courant, Id = Guid.NewGuid() });

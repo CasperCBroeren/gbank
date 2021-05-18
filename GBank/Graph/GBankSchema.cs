@@ -1,4 +1,5 @@
 ﻿using GraphQL.Types;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 
 namespace GBank.Graph
@@ -7,7 +8,7 @@ namespace GBank.Graph
     {
         public GBankSchema(IServiceProvider provider) : base(provider)
         {
-            Query = new RootQuery(); 
+            Query = provider.GetRequiredService<RootQuery>();
         }
     }
 }

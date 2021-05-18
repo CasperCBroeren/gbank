@@ -8,7 +8,7 @@ namespace GBank.Graph
 {
     public class CustomerType : ObjectGraphType<Customer>
     {
-        public CustomerType()
+        public CustomerType(IAccountRepo accountRepo)
         {
             Field(x => x.Id, type: typeof(IdGraphType));
             Field(x => x.FirstName);
@@ -20,7 +20,7 @@ namespace GBank.Graph
                 arguments: PaginationListQuery.DefaultQueryArguments,
                 resolve: context =>
                 { 
-                    var total = FakeAccountRepo.GetAccounts(context.Source.Id);
+                    var total = accountRepo.GetAccounts(context.Source.Id);
                     return PaginationList<Account>.FromTotal(total, context, x=> x.Iban);                    
                 }
             );
