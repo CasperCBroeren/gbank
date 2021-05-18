@@ -2,11 +2,10 @@
 
 namespace GBank.Graph.Queries
 {
-    public class RootQuery : ObjectGraphType
+    public class BankQuery : ObjectGraphType
     { 
-        public RootQuery()
-        {
-            Name = "RootQuery";
+        public BankQuery()
+        { 
             Field<CustomerQuery>("customers", resolve: context => new { });
             Field<AccountQuery>("accounts", resolve: context => new { });
         }

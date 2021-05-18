@@ -8,7 +8,7 @@ namespace GBank.Models
 
         public DateTime Created { get; set; }
 
-        public DateTime Settled { get; set; }
+        public DateTime? Settled { get; set; }
 
         public decimal Amount { get; set; }
 

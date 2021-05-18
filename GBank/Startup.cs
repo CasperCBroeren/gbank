@@ -29,6 +29,7 @@ namespace GBank
             services.AddSingleton<ISchema, GBankSchema>(services => new GBankSchema(new SelfActivatingServiceProvider(services)));
             services.AddSingleton<IAccountRepo, FakeAccountRepo>();
             services.AddSingleton<ICustomerRepo, FakeCustomerRepo>();
+            services.AddSingleton<ITransactionRepo, FakeTransactionRepo>();
 
             services.AddScoped<ISchema, GBankSchema>()
                 .AddGraphQL((options, provider) =>

@@ -9,7 +9,7 @@ namespace GBank.Graph
     {
         public GBankSchema(IServiceProvider provider) : base(provider)
         {
-            Query = provider.GetRequiredService<RootQuery>();
+            Query = provider.GetRequiredService<BankQuery>();
         }
     }
 }

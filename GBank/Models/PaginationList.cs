@@ -1,4 +1,4 @@
-﻿using GBank.Graph;
+﻿using GBank.Graph.Queries;
 using GraphQL;
 using System;
 using System.Collections.Generic;
@@ -12,7 +12,7 @@ namespace GBank.Models
 
         public IEnumerable<T> Data { get; set; } = new List<T>();
 
-        internal static PaginationList<T> FromTotal<Cursor>(List<T> total, IResolveFieldContext<Customer> context, Func<T,Cursor> sorter)
+        internal static PaginationList<T> FromTotal<Cursor>(List<T> total, IResolveFieldContext context, Func<T,Cursor> sorter)
         {
             var query = PaginationListQuery.FromContext(context);
             return new PaginationList<T>
