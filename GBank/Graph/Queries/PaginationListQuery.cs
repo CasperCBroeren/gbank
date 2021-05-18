@@ -2,7 +2,7 @@
 using GraphQL.Types;
 using System.Collections.Generic;
 
-namespace GBank.Graph
+namespace GBank.Graph.Queries
 {
     internal class PaginationListQuery
     {

@@ -1,4 +1,5 @@
-﻿using GraphQL.Types;
+﻿using GBank.Graph.Queries;
+using GraphQL.Types;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 

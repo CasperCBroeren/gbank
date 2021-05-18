@@ -1,9 +1,10 @@
-﻿using GBank.Models;
+﻿using GBank.Graph.Types;
+using GBank.Models;
 using GBank.Repositories;
 using GraphQL.Types;
 using System;
 
-namespace GBank.Graph
+namespace GBank.Graph.Queries
 {
     public class AccountQuery : ObjectGraphType
     {

@@ -1,10 +1,9 @@
 ﻿using GraphQL.Types;
 
-namespace GBank.Graph
+namespace GBank.Graph.Queries
 {
     public class RootQuery : ObjectGraphType
-    {
-
+    { 
         public RootQuery()
         {
             Name = "RootQuery";

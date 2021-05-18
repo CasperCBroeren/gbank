@@ -1,10 +1,10 @@
-﻿using GBank.Graph.Types;
+﻿using GBank.Graph.Queries;
 using GBank.Models;
 using GBank.Repositories;
 using GraphQL;
 using GraphQL.Types;
 
-namespace GBank.Graph
+namespace GBank.Graph.Types
 {
     public class CustomerType : ObjectGraphType<Customer>
     {

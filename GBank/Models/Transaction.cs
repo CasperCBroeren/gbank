@@ -14,8 +14,6 @@ namespace GBank.Models
 
         public Account Source { get; set; }
 
-        public Account Target { get; set; }
-
-
+        public Account Target { get; set; } 
     }
 }
