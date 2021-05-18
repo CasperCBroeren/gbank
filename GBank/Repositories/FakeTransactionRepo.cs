@@ -13,7 +13,7 @@ namespace GBank.Repositories
 
     public class FakeTransactionRepo : ITransactionRepo
     {
-        internal static Dictionary<Guid, List<Transaction>> FakeStorage = new();
+        internal static Dictionary<Guid, List<Transaction>> InMemory = new();
 
         public FakeTransactionRepo(IAccountRepo accountRepo)
         {
@@ -31,21 +31,21 @@ namespace GBank.Repositories
         }
         public void AddTransactionForAccount(Guid accountId, Transaction transaction)
         {
-            if (!FakeStorage.ContainsKey(accountId))
+            if (!InMemory.ContainsKey(accountId))
             {
-                FakeStorage.Add(accountId, new List<Transaction>());
+                InMemory.Add(accountId, new List<Transaction>());
             }
-            FakeStorage[accountId].Add(transaction);
+            InMemory[accountId].Add(transaction);
         }
 
         public List<Transaction> AllTransactions(Guid accountId)
         {
-            if (!FakeStorage.ContainsKey(accountId))
+            if (!InMemory.ContainsKey(accountId))
             {
                 return Array.Empty<Transaction>().ToList();
             }
 
-            return FakeStorage[accountId].ToList();
+            return InMemory[accountId].ToList();
         }
     }
 }
